@@ -1,0 +1,14 @@
+body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.select-none{
+	user-select: none;
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+}
+
+.draggable{
+	-webkit-app-region: drag;
+}

@@ -2,9 +2,10 @@
   "name": "electron-deno-ide",
   "version": "1.0.0",
   "description": "this is code editor - powered py mooud mohammadi",
-  "main": "electron/main.js",
+  "main": "electron/main/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev" : "electron .",
+    "build": "electron-builder"
   },
   "keywords": [
     "electronjs",

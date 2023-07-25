@@ -5,9 +5,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Deno - IDE</title>
+  <!-- ========= Stlyes ========= -->
+  <link rel="stylesheet" href="./css/styles.css">
+  <!-- ========= End Stlyes ========= -->
 </head>
-<body>
-  <h1>hello</h1>
+<body style="border-radius: 50px;">
+  <main class="container">
+    <!-- ========= TitleBar ========= -->
+    <header class="titleBar">
+      <h1 class="windowTitle draggable select-none">Deno IDE</h1>
+      <div class="windowControls select-none">
+        <button id="minimize">-</button>
+        <button id="maximize">[]</button>
+        <button id="exit">x</button>
+      </div>
+    </header>
+    <!-- ========= End TitleBar ========= -->
+  </main>
   <script src="./src/js/renderer/index.js"></script>
 </body>
 </html>
