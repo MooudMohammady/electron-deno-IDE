@@ -8,5 +8,10 @@ contextBridge.exposeInMainWorld('API', {
   },
   maximize: () => {
     ipcRenderer.send('maximize')
+  },
+  showSaveDialogAndSaveFile: (content,showSaveDialogAndSaveFile) => {
+    ipcRenderer.invoke('showSaveDialogAndSaveFile',content).then((filePath)=>{
+      showSaveDialogAndSaveFile(filePath)
+    })
   }
 })

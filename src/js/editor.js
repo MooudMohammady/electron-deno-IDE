@@ -84,6 +84,12 @@ function displayCustomThemeBlock() {
 }
 
 function parseMode(mode) {
+  if (mode === "md") {
+    mode = "markdown";
+  }
+  if (mode === "txt") {
+    mode = "text";
+  }
   if (mode === "js") {
     mode = "javascript";
   }
@@ -387,6 +393,9 @@ function updateFileSave(fileSaved) {
 }
 
 function toggleCodingScreensFromFilesContainer(explorerTabId) {
+  var fileExt = getFileExtension($("#" + explorerTabId).text());
+  mode = parseMode(fileExt);
+
   var tabNumber = numberReturner(explorerTabId);
 
   toggleCodeSlate(tabNumber);
@@ -846,70 +855,70 @@ function readFile(filePath) {
   });
 }
 
+function showSaveDialogAndSaveFile(currentFileAddress) {
+  // alert("An error occured while saving the file"); ارور دادن فایل رایتر هندل نشده
+  // fileSaved = false;
+  // updateFileSave();
+  if (currentFileAddress === undefined) {
+    // alert("File name is undefined");
+    // return;
+    // currentFileAddress = openedFiles
+    if (filePath == "null") {
+      currentFileAddress = openedFiles[0];
+    }
+  }
+  var tabIdNum = numberReturner(editor.container.id);
+
+  var tabId = "tabId_" + tabIdNum;
+
+  var currentFileName = getFileName(currentFileAddress);
+
+  $("#" + tabId)
+    .parent()
+    .html(returnListDesign(tabId, currentFileAddress, currentFileName, true));
+
+  populateTitleText();
+
+  filePath = currentFileAddress;
+  fileSaved = true;
+  updateFileSave();
+
+  var fileExt = getFileExtension(currentFileAddress);
+
+  push(filePath);
+
+  mode = parseMode(fileExt);
+
+  //todo : update the ui aftr detecting the extension and then colour code the editor
+  codeSlate(tabIdNum);
+
+  savedFiles.push(currentFileAddress);
+
+  //jsonContent.savedFiles = savedFiles;
+
+  //writeJson(jsonContent);
+
+  findEditor(editorId, fileExt);
+}
+
+function saveAs(){
+  window.API.showSaveDialogAndSaveFile(
+    editor.getValue(),
+    showSaveDialogAndSaveFile
+  );
+}
+
 function saveFile() {
   if (savingAllowed) {
     if (filePath == "null") {
-      showSaveDialogAndSaveFile();
+      window.API.showSaveDialogAndSaveFile(
+        editor.getValue(),
+        showSaveDialogAndSaveFile
+      );
     } else {
       saveFileWithoutDialog();
     }
   }
-}
-
-function showSaveDialogAndSaveFile() {
-  function saveFileArg(currentFileAddress) {
-    if (currentFileAddress === undefined) {
-      //alert("File name is undefined");
-      return;
-    }
-
-    var content = editor.getValue();
-
-    fs.writeFile(currentFileAddress, content, function (e) {
-      if (e) {
-        alert("An error occured while saving the file");
-        fileSaved = false;
-        updateFileSave();
-      } else {
-        var tabIdNum = numberReturner(editor.container.id);
-
-        var tabId = "tabId_" + tabIdNum;
-
-        var currentFileName = getFileName(currentFileAddress);
-
-        $("#" + tabId)
-          .parent()
-          .html(
-            returnListDesign(tabId, currentFileAddress, currentFileName, true)
-          );
-
-        populateTitleText();
-
-        filePath = currentFileAddress;
-        fileSaved = true;
-        updateFileSave();
-
-        var fileExt = getFileExtension(currentFileAddress);
-
-        push(filePath);
-
-        mode = parseMode(fileExt);
-
-        //todo : update the ui aftr detecting the extension and then colour code the editor
-        codeSlate(tabIdNum);
-
-        savedFiles.push(currentFileAddress);
-
-        //jsonContent.savedFiles = savedFiles;
-
-        //writeJson(jsonContent);
-
-        findEditor(editorId, fileExt);
-      }
-    });
-  }
-
-  dialog.showSaveDialog(saveFileArg);
 }
 
 function populateTitleText() {
@@ -987,18 +996,19 @@ function findEditor(id, getMode) {
   //console.log("finding the editor");
   editor = ace.edit(id);
 
-  if (getMode === "js") {
-    mode = "javascript";
-  }
-  if (getMode === "ts") {
-    mode = "typescript";
-  }
-  if (getMode === "py") {
-    mode = "python";
-  }
-  if (getMode === "CPP") {
-    mode = "cpp";
-  }
+  // if (getMode === "js") {
+  //   mode = "javascript";
+  // }
+  // if (getMode === "ts") {
+  //   mode = "typescript";
+  // }
+  // if (getMode === "py") {
+  //   mode = "python";
+  // }
+  // if (getMode === "CPP") {
+  //   mode = "cpp";
+  // }
+  if (getMode) mode = parseMode(getMode);
 
   $("#" + id).on("contextmenu", function (event) {
     contextMenuForEditor(event, id);
