@@ -10,12 +10,15 @@
 	width: 20px;
 	vertical-align: middle;
 }
+#currentFileName{
+	color: #fff5;
+}
 .windowTitle{
-	padding:10px;
+	padding-left:10px;
 	height:auto;
 	display:inline-block;
 	font-family: montserrat;
-  font-size: 12px;
+  font-size: 10px;
 }
 .windowControls{
 	float:right;

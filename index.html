@@ -19,7 +19,7 @@
     <div class="container">
       <!-- ========= TitleBar ========= -->
       <header class="titleBar">
-        <h1 class="windowTitle draggable select-none"><img src="./src/assets/img/logo.png" alt="" class="logo"> Deno IDE</h1>
+        <h1 class="windowTitle draggable select-none"><img src="./src/assets/img/logo.png" alt="" class="logo"> Deno IDE <span id='currentFileName'> </span></h1>
         <div class="windowControls select-none">
           <button id="minimize"><i class="far fa-window-minimize"></i></button>
           <button id="maximize"><i class="far fa-window-maximize"></i></button>
@@ -31,7 +31,7 @@
               File
               <ul>
                 <li onclick="createNewFile()">new file</li>
-                <li>
+                <li onclick="selectFolder()">
                   new folder
                   <ul>
                     <li>test</li>
@@ -39,13 +39,17 @@
                   </ul>
                 </li>
                 <hr />
-                <li>save</li>
-                <li>save as</li>
+                <li onclick="saveFile()">save</li>
+                <li onclick="showSaveDialogAndSaveFile()">save as</li>
                 <hr />
-                <li onclick="window.API.exit();">exit</li>
+                <li onclick="closeApp()">exit</li>
               </ul>
             </li>
             <li>Edit</li>
+            <li>View</li>
+            <li>Run</li>
+            <li>Terminal</li>
+            <li>Help</li>
           </ul>
         </nav>
       </header>
@@ -73,13 +77,14 @@
             <div class="exploredFilesContainer"></div>
           </div>
         </div>
-        <div id="editor"></div>
+        <div class="editorContainer"></div>
       </main>
     </div>
 
     <!-- ========= Scripts ========= -->
-    <script src="./src/js/tabBar.js"></script>
     <script src="./node_modules/ace-builds/src-noconflict/ace.js"></script>
+    <script src="./src/js/global.js"></script>
+    <script src="./src/js/tabBar.js"></script>
     <script src="./src/js/editor.js"></script>
     <!-- ========= End Scripts ========= -->
   </body>
