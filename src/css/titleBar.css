@@ -6,6 +6,10 @@
 	color:#fff;
 	font-size:10pt;
 }
+.titleBar .logo{
+	width: 20px;
+	vertical-align: middle;
+}
 .windowTitle{
 	padding:10px;
 	height:auto;
