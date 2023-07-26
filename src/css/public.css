@@ -1,14 +1,30 @@
-body{
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.select-none{
-	user-select: none;
-	-webkit-touch-callout:none;
-	-webkit-user-select:none;
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #202327;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #363a41;
 }
 
-.draggable{
-	-webkit-app-region: drag;
+.select-none {
+  user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+
+.draggable {
+  -webkit-app-region: drag;
+}
+
+.container {
+  height: 100%;
+  padding: 0;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
 }

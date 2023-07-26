@@ -1,0 +1,219 @@
+main.codingScreen {
+  height: 100%;
+  padding: 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+
+main.codingScreen > h1 {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  color: #fff5;
+  font-family: montserrat;
+}
+
+#editor {
+  display: none;
+  height: calc(100vh - 91.55px);
+  display:grid;
+	grid-template-rows: 1fr auto;
+}
+::-webkit-resizer {
+  background: transparent;
+}
+
+.codeslatesContainer {
+  background: black;
+  color: #fff;
+  z-index: 0;
+}
+
+/* .codingScreen {
+  display: grid;
+  z-index: 5;
+  grid-template-columns: auto 1fr auto;
+} */
+
+.explorerContainer {
+  display: none;
+  width: 215px;
+}
+
+.explorerContainerStyles,
+.widgetsContainerStyles {
+  background: #2d3239;
+}
+
+.ui-resizable-handle .ui-resizable-se .ui-icon .ui-icon-gripsmall-diagonal-se {
+  display: none;
+}
+
+.codeslate {
+  z-index: 1;
+  background: black;
+}
+
+.filesContainer {
+  color: #fff;
+  font-family: century gothic;
+  white-space: nowrap;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 250px;
+}
+
+.folderFiles {
+  background: #1c1f23;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  color: #fff;
+  padding: 0;
+  font-family: century gothic;
+  white-space: nowrap;
+  border-radius: 4px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.folderTitle {
+  font-size: 15px;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+}
+
+#folderName {
+  display: inline-block;
+}
+
+#syncFiles,
+#changeFolder {
+  display: inline-block;
+  color: #fff;
+  border: 0;
+  border-radius: 3px;
+  cursor: pointer;
+  padding: 5px;
+  font-size: 9px;
+  outline: 0;
+}
+
+#syncFiles {
+  font-size: 12px;
+  margin-right: 10px;
+  background: transparent;
+}
+
+#syncFiles:hover {
+  background: #262a2f;
+}
+
+#changeFolder {
+  letter-spacing: 1.1;
+  background: linear-gradient(#343f4c, #2b3038);
+}
+
+.exploredFilesContainer {
+  display: flex;
+  overflow-y: auto;
+  overflow-x: auto;
+  flex-direction: column;
+  max-height: 350px;
+}
+
+.exploredFilesContainer li,
+.filesContainer li {
+  list-style: none;
+  padding-left: 20px;
+
+  cursor: pointer;
+}
+
+.selectedFile {
+  background: #1c1f23;
+  margin-left: 10px;
+  transition: margin 0.1s ease-in-out;
+}
+
+.filesContainer li.selectedFile:hover {
+  background: #1c1f23;
+}
+
+.exploredFilesContainer li:hover,
+.filesContainer li:hover {
+  background: #262a2f;
+}
+
+/* .editorContainer{
+	height:100%;
+	z-index:5;
+	display:grid;
+	grid-template-rows: 1fr auto;
+} */
+
+.closeTabIcon {
+  color: #fff;
+  font-weight: bold;
+  font-size: 7px;
+  margin-top: 0px;
+  position: relative;
+  top: -2px;
+  left: -12px;
+  background: transparent;
+  padding: 3px 5px 3px 5px;
+  transition: all 0.1s ease-in-out;
+}
+
+.closeTabIcon:hover {
+  color: #1c1f22;
+}
+
+.fileNameSpan {
+  background: transparent;
+  padding-top: 4px;
+  display: inline-block;
+  padding-bottom: 4px;
+  width: 100%;
+  font-size: 12px;
+}
+
+.widgetsContainer {
+  width: auto;
+  padding: 5px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.widgetsDrawer button {
+  display: block;
+  height: 30px;
+  width: 35px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  outline: 0;
+}
+
+.widgetsDrawer button:hover {
+  box-shadow: inset 0px 0px 68px rgba(255, 255, 255, 0.19);
+}
+
+.tabActive {
+  border-bottom: 2px solid #ddd;
+}
+
+.widgetLoader {
+  height: 100%;
+  width: 00;
+  text-align: center;
+  display: none;
+}
+
+.widgetHeader {
+  width: 100%;
+  text-align: center;
+}

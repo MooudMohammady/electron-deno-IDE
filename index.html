@@ -1,27 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Deno - IDE</title>
-  <!-- ========= Stlyes ========= -->
-  <link rel="stylesheet" href="./src/css/styles.css">
-  <!-- ========= End Stlyes ========= -->
-</head>
-<body style="border-radius: 50px;">
-  <main class="container">
-    <!-- ========= TitleBar ========= -->
-    <header class="titleBar">
-      <h1 class="windowTitle draggable select-none">Deno IDE</h1>
-      <div class="windowControls select-none">
-        <button id="minimize">-</button>
-        <button id="maximize">[]</button>
-        <button id="exit">x</button>
-      </div>
-    </header>
-    <!-- ========= End TitleBar ========= -->
-  </main>
-  <script src="./src/js/renderer/index.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Deno - IDE</title>
+    <!-- ========= Stlyes ========= -->
+    <link rel="stylesheet" href="./src/css/styles.css" />
+    <!-- ========= End Stlyes ========= -->
+
+    <!-- ========= Scripts ========= -->
+    <script src="src/js/lib/jquery.min.js"></script>
+    <script src="src/js/lib/jquery.menu.js"></script>
+    <script src="src/js/lib/jqueryui.js"></script>
+    <!-- ========= End Scripts ========= -->
+  </head>
+  <body>
+    <div class="container">
+      <!-- ========= TitleBar ========= -->
+      <header class="titleBar">
+        <h1 class="windowTitle draggable select-none">Deno IDE</h1>
+        <div class="windowControls select-none">
+          <button id="minimize"><i class="far fa-window-minimize"></i></button>
+          <button id="maximize"><i class="far fa-window-maximize"></i></button>
+          <button id="exit"><i class="fas fa-times"></i></button>
+        </div>
+        <nav class="menuBar select-none" id="menu-bar">
+          <ul class="main-menu">
+            <li>
+              File
+              <ul>
+                <li onclick="createNewFile()">new file</li>
+                <li>
+                  new folder
+                  <ul>
+                    <li>test</li>
+                    <li>test</li>
+                  </ul>
+                </li>
+                <hr />
+                <li>save</li>
+                <li>save as</li>
+                <hr />
+                <li onclick="window.API.exit();">exit</li>
+              </ul>
+            </li>
+            <li>Edit</li>
+          </ul>
+        </nav>
+      </header>
+      <!-- ========= End TitleBar ========= -->
+
+      <main class="codingScreen select-none">
+        <h1 class="select-none">Deno IDE</h1>
+        <div
+          class="explorerContainer explorerContainerStyles"
+          id="resizableExplorer">
+          <div class="filesContainer">
+            <!--all the new and opened files are shown here-->
+          </div>
+
+          <div class="folderFiles">
+            <!--all the contents of any folder is shown here-->
+            <div class="folderTitle">
+              <div id="folderName"></div>
+
+              <button id="syncFiles" title="sync files">
+                <i class="fas fa-sync-alt"></i>
+              </button>
+              <button id="changeFolder">Change</button>
+            </div>
+            <div class="exploredFilesContainer"></div>
+          </div>
+        </div>
+        <div id="editor"></div>
+      </main>
+    </div>
+
+    <!-- ========= Scripts ========= -->
+    <script src="./src/js/tabBar.js"></script>
+    <script src="./node_modules/ace-builds/src-noconflict/ace.js"></script>
+    <script src="./src/js/editor.js"></script>
+    <!-- ========= End Scripts ========= -->
+  </body>
 </html>

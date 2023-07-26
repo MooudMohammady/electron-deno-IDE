@@ -1,0 +1,48 @@
+.menuBar {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.main-menu {
+  padding: 0 0 10px 0;
+  margin: 0;
+  list-style: none;
+  display: flex;
+}
+.main-menu li {
+  padding: 5px 10px;
+  position: relative;
+  text-transform: capitalize;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: default;
+  outline: none;
+}
+.main-menu li:hover {
+  background-color: #2d3239;
+}
+.main-menu li > ul {
+  position: absolute;
+  top: 100% !important;
+  list-style: none;
+  min-width: 150px;
+  margin: 0;
+  padding: 5px;
+  display: none;
+  background-color: #141518;
+  border: 2px solid #2d3137;
+  -webkit-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+ul.main-menu > li.active-menu {
+  background-color: #141518;
+}
+.main-menu li > ul hr {
+  width: 100%;
+  border: 1px solid #2d3137;
+}
+.submenu {
+  background-image: url(../assets/img/menu-right-arrow.png);
+  background-repeat: no-repeat;
+  background-position: right center;
+}
