@@ -37,5 +37,13 @@ contextBridge.exposeInMainWorld("API", {
   openFolder : async(address)=>{
     const result = await ipcRenderer.invoke("openFolder",address);
     return result;
+  },
+  sendCommand: (command) => {
+    ipcRenderer.send('execute-command', command);
+  },
+  receiveOutput: (callback) => {
+    ipcRenderer.on('command-output', (_, output) => {
+      callback(output);
+    });
   }
 });

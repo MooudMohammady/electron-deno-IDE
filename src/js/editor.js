@@ -214,6 +214,7 @@ async function selectFolder() {
     $(".editorContainer div[id^='codestat']").css("display", "block");
     $(".explorerContainer").css("display", "block");
     // writeJson(fileObj);
+    window.API.sendCommand(`cd ${directoryPath}`);
   } else {
   }
 }

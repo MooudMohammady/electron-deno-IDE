@@ -21,8 +21,8 @@ main.codingScreen > h1 {
 .editorContainer {
   display: none;
   height: calc(100vh - 69.51px);
-  display:grid;
-	grid-template-rows: 1fr auto;
+  display: grid;
+  grid-template-rows: 1fr auto auto;
 }
 ::-webkit-resizer {
   background: transparent;
@@ -224,25 +224,39 @@ main.codingScreen > h1 {
   text-align: center;
 }
 
-.imageContainer{
+.imageContainer {
   z-index: 2;
   display: grid;
   place-items: center;
   height: 100%;
 }
 
-.browsedImage{
+.browsedImage {
   max-width: 650px;
 }
 
-.videoContainer{
+.videoContainer {
   z-index: 2;
   display: grid;
   place-items: center;
   height: 100%;
 }
 
-.videoProp{
+.videoProp {
   width: 600px;
   max-width: 1000px;
+}
+
+#terminal {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #1f1f1f;
+  color: white;
+  z-index: 2;
+}
+#terminal:focus {
+  outline: none;
+  caret-color: blue;
 }
