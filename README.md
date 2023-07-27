@@ -1,0 +1,23 @@
+# <img src="./build/icon.png" style="width:33px"/> Deno IDE <img src="./build/icon.png" style="width:33px"/>
+This is a code editor that supports any file and has auto-complete, but this editor has some bugs that will be fixed in the future.
+
+[Click Hear](https://github.com/MooudMohammady/electron-deno-IDE/releases/download/v0.0.1/Deno.IDE.Setup.v0.0.1.zip) for download (Deno IDE v0.0.1) 
+
+**Note** : This editor belongs to the denovin team and we do not accept any commercial use of it
+
+## Features :
+- Open and suport any file like .js .html .py .mp4 .png .jpg
+- With Save and SaveAs
+- Customize frame and menu
+- Responsive and resizable explore
+- Has IntelliSense !
+- Dark theme (Dracula)
+- Fast ⚡
+
+## Features that will be added in the future:
+
+- Terminal and debug
+- Change theme
+- Create any projects like React.js & Django & Asp.net ...
+
+_Powered by Mooud Mohammadi tabar **(Modix)**_
