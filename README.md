@@ -5,6 +5,13 @@ This is a code editor that supports any file and has auto-complete, but this edi
 
 **Note** : This editor belongs to the denovin team and we do not accept any commercial use of it
 
+## Supported OS or platform :
+| OS or platform | Supported |
+|----------------|-----------|
+| Windows 10/11 |       ✅   |
+| Linux |       ✅   |
+| Mac os |       ✅   |
+
 ## Features :
 - Open and suport any file like .js .html .py .mp4 .png .jpg
 - With Save and SaveAs
