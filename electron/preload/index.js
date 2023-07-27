@@ -29,5 +29,13 @@ contextBridge.exposeInMainWorld("API", {
   readDirectoryAt: async (selectedDirectory)=>{
     const result = await ipcRenderer.invoke("readDirectoryAt", selectedDirectory);
     return result;
+  },
+  readFile : async (filePath)=>{
+    const result = await ipcRenderer.invoke("readFile",filePath);
+    return result;
+  },
+  openFolder : async(address)=>{
+    const result = await ipcRenderer.invoke("openFolder",address);
+    return result;
   }
 });

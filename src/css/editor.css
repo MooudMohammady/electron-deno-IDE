@@ -43,6 +43,7 @@ main.codingScreen > h1 {
 .explorerContainer {
   display: none;
   width: 215px;
+  z-index: 2;
 }
 
 .explorerContainerStyles,
@@ -221,4 +222,27 @@ main.codingScreen > h1 {
 .widgetHeader {
   width: 100%;
   text-align: center;
+}
+
+.imageContainer{
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
+
+.browsedImage{
+  max-width: 650px;
+}
+
+.videoContainer{
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
+
+.videoProp{
+  width: 600px;
+  max-width: 1000px;
 }

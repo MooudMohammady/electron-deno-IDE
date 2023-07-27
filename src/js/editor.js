@@ -202,20 +202,6 @@ function settings(theme) {
 //now i am going to select folders
 
 async function selectFolder() {
-  // dialog.showOpenDialog({
-  //     	properties: ['openDirectory']
-  //   		}, function(dir,e){
-  //   			if(dir!==undefined){
-  //   			$(".exploredFilesContainer").html("");
-  //   			var selectedDirectory = dir[0];
-  //   			directoryPath = selectedDirectory;
-  //   			readDirectoryAt(selectedDirectory);
-  //   			$("#folderName").html(getFileName(selectedDirectory));
-  //   			fileObj.directoryPath = selectedDirectory;
-  //   			writeJson(fileObj);
-  //   			}else{
-  //   			}
-  // });
   let dir = await window.API.selectFolder();
   if (dir !== undefined) {
     $(".exploredFilesContainer").html("");
@@ -224,6 +210,9 @@ async function selectFolder() {
     readDirectoryAt(selectedDirectory);
     $("#folderName").html(getFileName(selectedDirectory));
     fileObj.directoryPath = selectedDirectory;
+    $(".editorContainer div[id^='codeslate_']").css("display", "block");
+    $(".editorContainer div[id^='codestat']").css("display", "block");
+    $(".explorerContainer").css("display", "block");
     // writeJson(fileObj);
   } else {
   }
@@ -238,10 +227,8 @@ async function readDirectoryAt(selectedDirectory) {
   let dir = await window.API.readDirectoryAt(selectedDirectory);
   console.log(dir);
   if (dir !== undefined) {
-    var i;
-    
-    for (i = 0; i < dir.length; i++) {
-      var folderFileAddress = selectedDirectory + "\\" + dir[i];
+    for (var files of dir) {
+      var folderFileAddress = selectedDirectory + "\\" + files;
 
       currentFileName = getFileName(folderFileAddress);
 
@@ -327,7 +314,7 @@ function returnExplorerDesign(tabId, fileAddress, fileName) {
   return des;
 }
 
-function openFolder(id) {
+async function openFolder(id) {
   var listElement = $("#" + id);
 
   var subId = "subId_" + numberReturner(id);
@@ -345,7 +332,9 @@ function openFolder(id) {
     $("#" + symbolId).addClass("folderClosed");
   }
 
-  fs.readdir(address, function (err, dir) {
+  try {
+    let dir = await window.API.openFolder(address);
+
     for (i = 0; i < dir.length; i++) {
       var folderFileAddress = address + "\\" + dir[i];
 
@@ -355,7 +344,9 @@ function openFolder(id) {
 
       appendFileInSubfileContainer(folderFileAddress, subId);
     }
-  });
+  } catch (error) {
+    console.log(error);
+  }
 }
 
 function desiredFunctions(ext) {
@@ -494,7 +485,7 @@ function toggleCodeSlate(tabNumber) {
 function toggleScreens(element) {
   hideContentFromContainer();
 
-  $("#" + element).css("display", "block");
+  $("#" + element).css("display", "grid");
 }
 
 function hideContentFromContainer() {
@@ -859,13 +850,10 @@ function fileExplorerListAnimation() {
   );
 }
 
-function readFile(filePath) {
+async function readFile(filePath) {
   //console.log("reading file");
-
-  fs.readFile(filePath, "utf-8", function (e, data) {
-    //console.log("fs read called");
-    editor.setValue(data);
-  });
+  let data = await window.API.readFile(filePath);
+  editor.setValue(data);
 }
 
 function showSaveDialogAndSaveFile(currentFileAddress) {
