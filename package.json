@@ -1,6 +1,7 @@
 {
   "name": "electron-deno-ide",
-  "version": "1.0.0",
+  "version": "0.0.1",
+  "icon": "",
   "description": "this is code editor - powered py mooud mohammadi",
   "main": "electron/main/index.js",
   "scripts": {

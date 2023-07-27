@@ -4,22 +4,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./src/assets/img/favicon.ico" />
     <title>Deno - IDE</title>
     <!-- ========= Stlyes ========= -->
-    <link rel="stylesheet" href="./src/css/styles.css" />
+    <link rel="stylesheet" href="../css/styles.css" />
     <!-- ========= End Stlyes ========= -->
 
     <!-- ========= Scripts ========= -->
-    <script src="src/js/lib/jquery.min.js"></script>
-    <script src="src/js/lib/jquery.menu.js"></script>
-    <script src="src/js/lib/jqueryui.js"></script>
+    <script src="../js/lib/jquery.min.js"></script>
+    <script src="../js/lib/jquery.menu.js"></script>
+    <script src="../js/lib/jqueryui.js"></script>
     <!-- ========= End Scripts ========= -->
   </head>
   <body>
     <div class="container">
       <!-- ========= TitleBar ========= -->
       <header class="titleBar">
-        <h1 class="windowTitle draggable select-none"><img src="./src/assets/img/logo.png" alt="" class="logo"> Deno IDE <span id='currentFileName'> </span></h1>
+        <h1 class="windowTitle draggable select-none"><img src="../assets/img/logo.png" alt="" class="logo"> Deno IDE <span id='currentFileName'> </span></h1>
         <div class="windowControls select-none">
           <button id="minimize"><i class="far fa-window-minimize"></i></button>
           <button id="maximize"><i class="far fa-window-maximize"></i></button>
@@ -56,7 +57,7 @@
       <!-- ========= End TitleBar ========= -->
 
       <main class="codingScreen select-none">
-        <h1 class="select-none"><img src="./src/assets/img/logo.png" alt="" draggable="false"> Deno IDE</h1>
+        <h1 class="select-none"><img src="../assets/img/logo.png" alt="" draggable="false"> Deno IDE</h1>
         <div
           class="explorerContainer explorerContainerStyles"
           id="resizableExplorer">
@@ -82,10 +83,10 @@
     </div>
 
     <!-- ========= Scripts ========= -->
-    <script src="./node_modules/ace-builds/src-noconflict/ace.js"></script>
-    <script src="./src/js/global.js"></script>
-    <script src="./src/js/tabBar.js"></script>
-    <script src="./src/js/editor.js"></script>
+    <script src="../../node_modules/ace-builds/src-noconflict/ace.js"></script>
+    <script src="../js/global.js"></script>
+    <script src="../js/tabBar.js"></script>
+    <script src="../js/editor.js"></script>
     <!-- ========= End Scripts ========= -->
   </body>
 </html>

@@ -14,9 +14,9 @@ const createWindow = () => {
     minWidth: 600,
     frame: false,
     backgroundColor: "#16181A",
-    icon: path.join(__dirname, "../../src/assets/img/logo.png"),
+    icon: path.join(__dirname, "..", "..", "/src/assets/img/favicon.ico"),
     webPreferences: {
-      preload: path.join(__dirname, "../preload/index.js"),
+      preload: path.join(__dirname, "..", "/preload/index.js"),
     },
   });
 
@@ -36,39 +36,21 @@ const createWindow = () => {
     let result = await dialog.showSaveDialog(win);
     if (!result.canceled) {
       fs.writeFile(result.filePath, content, function (error) {
-        // if (e) {
-        //   alert("An error occured while saving the file");
-        //   fileSaved = false;
-        //   updateFileSave();
-        // } else {
-        // var tabIdNum = numberReturner(editor.container.id);
-        // var tabId = "tabId_" + tabIdNum;
-        // var currentFileName = getFileName(currentFileAddress);
-        // $("#" + tabId)
-        //   .parent()
-        //   .html(
-        //     returnListDesign(tabId, currentFileAddress, currentFileName, true)
-        //   );
-        // populateTitleText();
-        // filePath = currentFileAddress;
-        // fileSaved = true;
-        // updateFileSave();
-        // var fileExt = getFileExtension(currentFileAddress);
-        // push(filePath);
-        // mode = parseMode(fileExt);
-        // //todo : update the ui aftr detecting the extension and then colour code the editor
-        // codeSlate(tabIdNum);
-        // savedFiles.push(currentFileAddress);
-        // //jsonContent.savedFiles = savedFiles;
-        // //writeJson(jsonContent);
-        // findEditor(editorId, fileExt);
-        // }
+        if (error) {
+          throw error;
+        }
       });
+      return result.filePath;
     }
-    return result.filePath
   });
 
-  win.loadFile(path.join(__dirname + "../../../index.html"));
+  ipcMain.handle("saveFileWithoutDialog", async (e, filePath, content) => {
+    fs.writeFile(filePath, content, function (error) {
+      if (error) throw error;
+    });
+  });
+
+  win.loadFile(path.join(__dirname, "..", "..", "src/pages/index.html"));
 
   win.on("ready-to-show", () => {
     win.show();

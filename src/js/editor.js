@@ -859,6 +859,11 @@ function showSaveDialogAndSaveFile(currentFileAddress) {
   // alert("An error occured while saving the file"); ارور دادن فایل رایتر هندل نشده
   // fileSaved = false;
   // updateFileSave();
+  if (currentFileAddress === "error") {
+    fileSaved = false;
+    updateFileSave();
+    return
+  }
   if (currentFileAddress === undefined) {
     // alert("File name is undefined");
     // return;
@@ -901,7 +906,7 @@ function showSaveDialogAndSaveFile(currentFileAddress) {
   findEditor(editorId, fileExt);
 }
 
-function saveAs(){
+function saveAs() {
   window.API.showSaveDialogAndSaveFile(
     editor.getValue(),
     showSaveDialogAndSaveFile
@@ -933,26 +938,25 @@ function saveFileWithoutDialog() {
     var tabIdNum = numberReturner(editor.container.id);
 
     var tabId = "tabId_" + tabIdNum;
-
-    fs.writeFile(filePath, content, (err) => {
-      if (err) {
-        alert("An error ocurred updating the file" + err.message);
-        console.log(err);
-        fileSaved = false;
-        updateFileSave();
-
-        return;
-      }
-      var opacity = $("#" + tabId + " .writeIndicator");
-
-      opacity.css("opacity", 0);
-      fileSaved = true;
+    try {
+      window.API.saveFileWithoutDialog(filePath, content);
+    } catch (error) {
+      alert("An error ocurred updating the file" + err.message);
+      console.log(err);
+      fileSaved = false;
       updateFileSave();
 
-      var fileExt = getFileExtension(filePath);
+      return;
+    }
+    var opacity = $("#" + tabId + " .writeIndicator");
 
-      mode = parseMode(fileExt);
-    });
+    opacity.css("opacity", 0);
+    fileSaved = true;
+    updateFileSave();
+
+    var fileExt = getFileExtension(filePath);
+
+    mode = parseMode(fileExt);
   }
 }
 
