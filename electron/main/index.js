@@ -50,6 +50,24 @@ const createWindow = () => {
     });
   });
 
+  ipcMain.handle("selectFolder", async (e) => {
+    let result = await dialog.showOpenDialog({ properties: ["openDirectory"] });
+    if(!result.canceled){
+      return result.filePaths
+    }
+  });
+
+  ipcMain.handle("readDirectoryAt",async(e,selectedDirectory)=>{
+    return new Promise((resolve,reject)=>{
+      fs.readdir(selectedDirectory, function (err, files) {
+        if(err){
+          reject(err)
+        } 
+        resolve(files)
+      });
+    })
+  })
+
   win.loadFile(path.join(__dirname, "..", "..", "src/pages/index.html"));
 
   win.on("ready-to-show", () => {

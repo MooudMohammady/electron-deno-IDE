@@ -201,7 +201,7 @@ function settings(theme) {
 
 //now i am going to select folders
 
-function selectFolder() {
+async function selectFolder() {
   // dialog.showOpenDialog({
   //     	properties: ['openDirectory']
   //   		}, function(dir,e){
@@ -216,6 +216,17 @@ function selectFolder() {
   //   			}else{
   //   			}
   // });
+  let dir = await window.API.selectFolder();
+  if (dir !== undefined) {
+    $(".exploredFilesContainer").html("");
+    var selectedDirectory = dir[0];
+    directoryPath = selectedDirectory;
+    readDirectoryAt(selectedDirectory);
+    $("#folderName").html(getFileName(selectedDirectory));
+    fileObj.directoryPath = selectedDirectory;
+    // writeJson(fileObj);
+  } else {
+  }
 }
 
 function syncFiles() {
@@ -223,10 +234,12 @@ function syncFiles() {
   readDirectoryAt(directoryPath);
 }
 
-function readDirectoryAt(selectedDirectory) {
-  var i;
-
-  fs.readdir(selectedDirectory, function (err, dir) {
+async function readDirectoryAt(selectedDirectory) {
+  let dir = await window.API.readDirectoryAt(selectedDirectory);
+  console.log(dir);
+  if (dir !== undefined) {
+    var i;
+    
     for (i = 0; i < dir.length; i++) {
       var folderFileAddress = selectedDirectory + "\\" + dir[i];
 
@@ -236,7 +249,7 @@ function readDirectoryAt(selectedDirectory) {
 
       appendFileInExploredContainer(folderFileAddress);
     }
-  });
+  }
 }
 
 //debug the add new explporer tab
@@ -862,7 +875,7 @@ function showSaveDialogAndSaveFile(currentFileAddress) {
   if (currentFileAddress === "error") {
     fileSaved = false;
     updateFileSave();
-    return
+    return;
   }
   if (currentFileAddress === undefined) {
     // alert("File name is undefined");

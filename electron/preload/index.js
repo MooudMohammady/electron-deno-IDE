@@ -22,5 +22,12 @@ contextBridge.exposeInMainWorld("API", {
   },
   saveFileWithoutDialog: (filePath,content)=>{
     ipcRenderer.invoke("saveFileWithoutDialog",filePath,content);
+  },
+  selectFolder:()=>{
+    return ipcRenderer.invoke("selectFolder")
+  },
+  readDirectoryAt: async (selectedDirectory)=>{
+    const result = await ipcRenderer.invoke("readDirectoryAt", selectedDirectory);
+    return result;
   }
 });
