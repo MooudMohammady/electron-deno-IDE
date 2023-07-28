@@ -135,8 +135,12 @@ main.codingScreen > h1 {
 .filesContainer li {
   list-style: none;
   padding-left: 20px;
-
+  display: flex;
   cursor: pointer;
+}
+.exploredFilesContainer li,
+.filesContainer li > div{
+  width: 100%;
 }
 
 .selectedFile {
@@ -257,4 +261,39 @@ main.codingScreen > h1 {
   border-top: 1px solid #343f4c;
   color: white;
   z-index: 2;
+  height: 0;
+}
+
+.symbol{
+	margin-right:10px;
+	height:17px;
+	width:17px;
+	display:inline-block;
+
+}
+
+
+.folderClosed{
+	background:url('../assets/img/folderclosed.png') 50% 50% no-repeat;
+	background-size:contain;
+}
+
+.folderOpen{
+	background:url('../assets/img/folderopen.png') 50% 50% no-repeat;
+	background-size:contain;
+}
+
+.fileSymbol{
+	background:url('../assets/img/filesymbol.png') 50% 50% no-repeat;
+	background-size:contain;
+
+}
+
+.subFileContainer{
+	margin-left:15px;
+	display:none;
+}
+
+.opened{
+	display:block;
 }

@@ -1010,13 +1010,26 @@ function RunCurrentFile() {
           command = `node ${filePath}`;
           break;
       }
-      window.API.sendCommand(command + "\r");
+      if(command)
+        window.API.sendCommand(command + "\r");
+      else
+        window.API.sendCommand(`echo "Error : Sorry i cant run this file"` + "\r");
+      showTerminal()
     } else {
       window.API.sendCommand(`echo "Error : The file is null !"\r`);
+      showTerminal()
     }
   } else {
     window.API.sendCommand(`echo "Error : The file is not saved !"\r`);
+    showTerminal()
   }
+}
+
+function showTerminal(){
+  $("#terminal").css({"height":"184px"})
+}
+function hideTerminal(){
+  $("#terminal").css({"height":"0px"})
 }
 
 /********** ACE CONFIG **********/
