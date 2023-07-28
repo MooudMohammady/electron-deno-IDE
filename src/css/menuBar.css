@@ -23,6 +23,7 @@
 .main-menu li > ul {
   position: absolute;
   top: 100% !important;
+  left: 0 !important;
   list-style: none;
   min-width: 150px;
   margin: 0;

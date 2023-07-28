@@ -10,6 +10,7 @@ var editorId;
 var filetype = "";
 var codestatId;
 var currentFileName;
+var currentFileAddress;
 var editor;
 var explorerHidden = false;
 var filePath = "null";

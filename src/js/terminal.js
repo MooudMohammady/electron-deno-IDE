@@ -21,9 +21,6 @@ function scrollToBottom(t) {
   t.focus();
   // t.blur() // uncomment if you don't want a final focus
 }
-// document.getElementById("terminal").addEventListener("click", (event) => {
-//   scrollToBottom(document.getElementById("terminal"));
-// });
 // گرفتن رویداد کلید Enter برای اجرای دستور
 document.getElementById("terminal").addEventListener("keydown", (event) => {
   event.preventDefault()

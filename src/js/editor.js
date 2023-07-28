@@ -414,6 +414,7 @@ function toggleCodingScreensFromFilesContainer(explorerTabId) {
     .addClass("selectedFile");
 
   populateTitleText();
+  filePath = $("#" + explorerTabId).attr("fileaddress");
 }
 
 function thisIsTheFirstFile(currentFileAddress) {
@@ -993,6 +994,36 @@ function hideExplorer() {
     );
 
     explorerHidden = false;
+  }
+}
+
+function RunCurrentFile() {
+  if (filePath !== "null") {
+    if (editor.getValue()) {
+      console.log(filePath);
+      let command;
+      switch (mode) {
+        case "python":
+          command = `python ${filePath}`;
+          break;
+        case "javascript":
+          command = `node ${filePath}`;
+          break;
+      }
+      window.API.sendCommand(command);
+    } else {
+      $("#terminal").css({ color: "red" });
+      window.API.sendCommand("echo Error : The file is null !");
+      setTimeout(() => {
+        $("#terminal").css({ color: "white" });
+      }, 1000);
+    }
+  } else {
+    $("#terminal").css({ color: "red" });
+    window.API.sendCommand("echo Error : The file is not saved !");
+    setTimeout(() => {
+      $("#terminal").css({ color: "white" });
+    }, 1000);
   }
 }
 
