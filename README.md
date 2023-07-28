@@ -1,7 +1,7 @@
 # <img src="./build/icon.png" style="width:33px"/> Deno IDE <img src="./build/icon.png" style="width:33px"/>
 This is a code editor that supports any file and has auto-complete, but this editor has some bugs that will be fixed in the future.
 
-[Click Hear](https://github.com/MooudMohammady/electron-deno-IDE/releases/download/v0.0.1/Deno.IDE.Setup.v0.0.1.zip](https://github.com/MooudMohammady/electron-deno-IDE/tags ) for download (Deno IDE v0.0.1) 
+[Click here](https://github.com/MooudMohammady/electron-deno-IDE/releases/download/v0.0.1/Deno.IDE.Setup.v0.0.1.zip](https://github.com/MooudMohammady/electron-deno-IDE/tags ) for download Deno IDE 
 
 **Note** : This editor belongs to the denovin team and we do not accept any commercial use of it
 
