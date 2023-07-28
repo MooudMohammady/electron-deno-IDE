@@ -1,23 +1,27 @@
-const { spawn } = require("child_process");
+// const { spawn } = require("child_process");
 const { ipcMain } = require("electron");
+const pty = require('node-pty');
+const os = require('os');
+var shell = os.platform() === "win32" ? "powershell.exe" : "bash"
+
+var ptyPeocess;
 
 module.exports.startTerminal = (mainWindow)=>{
-    const cmd = spawn(process.platform === 'win32' ? 'cmd.exe' : 'bash', [], {
-      cwd: process.env.HOME,
-      env: process.env
-    });
-  
-    // Get command from client and run in the terminal
-    ipcMain.on('execute-command', (event, command) => {
-      command && cmd.stdin.write(command.split('>')[1] !== undefined ? command.split('>')[1] + '\n' : command + '\n');
-    });
-  
-    // Get the terminal output and send it to the rendering process
-    cmd.stdout.on('data', (data) => {
-      mainWindow.webContents.send('command-output', data.toString());
-    });
-  
-    cmd.stderr.on('data', (data) => {
-      mainWindow.webContents.send('command-output', data.toString());
-    });
+  if(ptyPeocess){
+    ptyPeocess.kill()
+  }
+
+  ptyPeocess = pty.spawn(shell,[],{
+    name:"xterm-color",
+    cwd:process.env.HOME,
+    env:process.env
+  })
+
+  ptyPeocess.onData((data)=>{
+    mainWindow.webContents.send("command-output",data);
+  })
+
+  ipcMain.on("execute-command",(e,data)=>{
+    ptyPeocess.write(data)
+  })
 }

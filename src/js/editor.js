@@ -214,7 +214,7 @@ async function selectFolder() {
     $(".editorContainer div[id^='codestat']").css("display", "block");
     $(".explorerContainer").css("display", "block");
     // writeJson(fileObj);
-    window.API.sendCommand(`cd ${directoryPath}`);
+    window.API.sendCommand(`cd ${directoryPath}\r`);
   } else {
   }
 }
@@ -1010,20 +1010,12 @@ function RunCurrentFile() {
           command = `node ${filePath}`;
           break;
       }
-      window.API.sendCommand(command);
+      window.API.sendCommand(command + "\r");
     } else {
-      $("#terminal").css({ color: "red" });
-      window.API.sendCommand("echo Error : The file is null !");
-      setTimeout(() => {
-        $("#terminal").css({ color: "white" });
-      }, 1000);
+      window.API.sendCommand(`echo "Error : The file is null !"\r`);
     }
   } else {
-    $("#terminal").css({ color: "red" });
-    window.API.sendCommand("echo Error : The file is not saved !");
-    setTimeout(() => {
-      $("#terminal").css({ color: "white" });
-    }, 1000);
+    window.API.sendCommand(`echo "Error : The file is not saved !"\r`);
   }
 }
 

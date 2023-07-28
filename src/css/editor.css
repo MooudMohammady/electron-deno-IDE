@@ -252,12 +252,9 @@ main.codingScreen > h1 {
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: #202327;
+  /* background-color: #202327 !important; */
   border: none;
   border-top: 1px solid #343f4c;
   color: white;
   z-index: 2;
-}
-#terminal:focus {
-  outline: none;
 }

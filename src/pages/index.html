@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="./src/assets/img/favicon.ico" />
     <title>Deno - IDE</title>
     <!-- ========= Stlyes ========= -->
+    <link rel="stylesheet" href="../../node_modules/xterm/css/xterm.css">
     <link rel="stylesheet" href="../css/styles.css" />
     <!-- ========= End Stlyes ========= -->
 
@@ -14,6 +15,7 @@
     <script src="../js/lib/jquery.min.js"></script>
     <script src="../js/lib/jquery.menu.js"></script>
     <script src="../js/lib/jqueryui.js"></script>
+    <script src="../../node_modules/xterm/lib/xterm.js"></script>
     <!-- ========= End Scripts ========= -->
   </head>
   <body>
@@ -79,8 +81,9 @@
         </div>
         <div class="editorContainer"></div>
         <h1 class="select-none"><img src="../assets/img/logo.png" alt="" draggable="false"> Deno IDE</h1>
+        <div id="terminal"></div>
       </main>
-      <textarea id="terminal" cols="30" rows="10" ></textarea>
+      <!-- <textarea id="terminal" cols="30" rows="10" ></textarea> -->
     </div>
 
     <!-- ========= Scripts ========= -->
