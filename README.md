@@ -18,12 +18,12 @@ This is a code editor that supports any file and has auto-complete, but this edi
 - Customize frame and menu
 - Responsive and resizable explore
 - Has IntelliSense !
+- Terminal and run file like .py and .js(node)
 - Dark theme (Dracula)
 - Fast ⚡
 
 ## Features that will be added in the future:
 
-- Terminal and debug
 - Change theme
 - Create any projects like React.js & Django & Asp.net ...
 
