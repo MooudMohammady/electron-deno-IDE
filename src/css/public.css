@@ -12,6 +12,9 @@ body {
 ::-webkit-scrollbar-thumb {
   background-color: #363a41;
 }
+::-webkit-resizer {
+  background: transparent;
+}
 
 .select-none {
   user-select: none;

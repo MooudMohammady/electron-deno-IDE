@@ -45,5 +45,8 @@ contextBridge.exposeInMainWorld("API", {
     ipcRenderer.on('command-output', (_, output) => {
       callback(output);
     });
+  },
+  renameCurrentFile:(addressOfFileToBeRenamed,newAddress)=>{
+    ipcRenderer.invoke('renameCurrentFile', addressOfFileToBeRenamed,newAddress);
   }
 });

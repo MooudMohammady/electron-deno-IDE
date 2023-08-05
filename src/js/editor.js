@@ -829,9 +829,11 @@ function renameCurrentFile(fileId) {
       $("#" + tabId).attr("fileaddress", newAddress);
       $("#" + tabId + "_fileName").html(newName);
 
-      fs.rename(addressOfFileToBeRenamed, newAddress, (err) => {
-        if (err) throw err;
-      });
+      try {
+        window.API.renameCurrentFile(addressOfFileToBeRenamed,newAddress)
+      } catch (error) {
+        console.log(error);
+      }
 
       $("#renameFileContainer").css("display", "none");
     }
@@ -1004,10 +1006,10 @@ function RunCurrentFile() {
       let command;
       switch (mode) {
         case "python":
-          command = `python ${filePath}`;
+          command = `python.exe ${filePath}`;
           break;
         case "javascript":
-          command = `node ${filePath}`;
+          command = `node.exe ${filePath}`;
           break;
       }
       if(command)

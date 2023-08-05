@@ -24,21 +24,12 @@ main.codingScreen > h1 {
   display: grid;
   grid-template-rows: 1fr auto auto;
 }
-::-webkit-resizer {
-  background: transparent;
-}
 
 .codeslatesContainer {
   background: black;
   color: #fff;
   z-index: 0;
 }
-
-/* .codingScreen {
-  display: grid;
-  z-index: 5;
-  grid-template-columns: auto 1fr auto;
-} */
 
 .explorerContainer {
   display: none;
@@ -139,7 +130,7 @@ main.codingScreen > h1 {
   cursor: pointer;
 }
 .exploredFilesContainer li,
-.filesContainer li > div{
+.filesContainer li > div {
   width: 100%;
 }
 
@@ -157,13 +148,6 @@ main.codingScreen > h1 {
 .filesContainer li:hover {
   background: #262a2f;
 }
-
-/* .editorContainer{
-	height:100%;
-	z-index:5;
-	display:grid;
-	grid-template-rows: 1fr auto;
-} */
 
 .closeTabIcon {
   color: #fff;
@@ -256,7 +240,6 @@ main.codingScreen > h1 {
   bottom: 0;
   right: 0;
   left: 0;
-  /* background-color: #202327 !important; */
   border: none;
   border-top: 1px solid #343f4c;
   color: white;
@@ -264,36 +247,93 @@ main.codingScreen > h1 {
   height: 0;
 }
 
-.symbol{
-	margin-right:10px;
-	height:17px;
-	width:17px;
-	display:inline-block;
-
+.symbol {
+  margin-right: 10px;
+  height: 17px;
+  width: 17px;
+  display: inline-block;
 }
 
-
-.folderClosed{
-	background:url('../assets/img/folderclosed.png') 50% 50% no-repeat;
-	background-size:contain;
+.folderClosed {
+  background: url("../assets/img/folderclosed.png") 50% 50% no-repeat;
+  background-size: contain;
 }
 
-.folderOpen{
-	background:url('../assets/img/folderopen.png') 50% 50% no-repeat;
-	background-size:contain;
+.folderOpen {
+  background: url("../assets/img/folderopen.png") 50% 50% no-repeat;
+  background-size: contain;
 }
 
-.fileSymbol{
-	background:url('../assets/img/filesymbol.png') 50% 50% no-repeat;
-	background-size:contain;
-
+.fileSymbol {
+  background: url("../assets/img/filesymbol.png") 50% 50% no-repeat;
+  background-size: contain;
 }
 
-.subFileContainer{
-	margin-left:15px;
-	display:none;
+.subFileContainer {
+  margin-left: 15px;
+  display: none;
 }
 
-.opened{
-	display:block;
+.opened {
+  display: block;
+}
+
+#renameFileContainer {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 55%;
+  z-index: 9999;
+  padding: 10px;
+  font-family: arial;
+  color: #fff;
+  font-size: 15px;
+  border-radius: 2px;
+  background: #2d3239;
+  display: none;
+}
+
+#renameInput {
+  margin-top: 4px;
+  outline: 0;
+  display: block;
+  padding: 10px;
+  background: #1c1f23;
+  border: 0;
+  box-shadow: inset 0px 1.5px 1px rgba(0, 0, 0, 0.6);
+  font-family: montserrat;
+  color: #fff;
+  width: 100%;
+  border-radius: 2px;
+  font-size: 16px;
+}
+
+#contextMenu {
+  position: absolute;
+  border: 1px solid #59606b;
+  background: #000;
+  z-index: 99999;
+  display: none;
+  height: auto;
+  border-radius: 5px;
+  width: 200px;
+}
+
+#contextMenu li {
+  display: block;
+  list-style: none;
+  padding: 5px;
+  color: #fff;
+  cursor: pointer;
+  font-family: century gothic;
+  font-size: 11px;
+}
+#contextMenu li:hover {
+  background: dodgerblue;
+}
+
+.contextSelected {
+  background: rgba(255, 255, 255, 0.8);
+  color: #000;
 }

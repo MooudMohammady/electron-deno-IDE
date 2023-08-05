@@ -16,6 +16,7 @@ const {
 const { titleBar } = require("../ipcMain/titleBar");
 const { fileMenu } = require("../ipcMain/fileMenu");
 const { startTerminal } = require("../ipcMain/terminal");
+const { contextMenu } = require("../ipcMain/contextMenu");
 
 //------------------ Variable -------------------
 let mainWindow;
@@ -39,6 +40,7 @@ const createWindow = () => {
   //------------------ IpcMain -------------------
   titleBar(mainWindow);
   fileMenu();
+  contextMenu();
   //------------------ End IpcMain -------------------
 
   mainWindow.loadFile(path.join(__dirname, "..", "..", "src/pages/index.html"));

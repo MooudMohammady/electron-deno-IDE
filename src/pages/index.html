@@ -7,7 +7,7 @@
     <link rel="icon" type="image/x-icon" href="./src/assets/img/favicon.ico" />
     <title>Deno - IDE</title>
     <!-- ========= Stlyes ========= -->
-    <link rel="stylesheet" href="../../node_modules/xterm/css/xterm.css">
+    <link rel="stylesheet" href="../../node_modules/xterm/css/xterm.css" />
     <link rel="stylesheet" href="../css/styles.css" />
     <!-- ========= End Stlyes ========= -->
 
@@ -19,10 +19,22 @@
     <!-- ========= End Scripts ========= -->
   </head>
   <body>
+    <div id="contextMenu">
+      <!--  context menu -->
+    </div>
+
+    <div id="renameFileContainer">
+      Rename...
+      <input type="text" id="renameInput" />
+    </div>
+
     <div class="container">
       <!-- ========= TitleBar ========= -->
       <header class="titleBar">
-        <h1 class="windowTitle draggable select-none"><img src="../assets/img/logo.png" alt="" class="logo"> Deno IDE <span id='currentFileName'> </span></h1>
+        <h1 class="windowTitle draggable select-none">
+          <img src="../assets/img/logo.png" alt="" class="logo" /> Deno IDE
+          <span id="currentFileName"> </span>
+        </h1>
         <div class="windowControls select-none">
           <button id="minimize"><i class="far fa-window-minimize"></i></button>
           <button id="maximize"><i class="far fa-window-maximize"></i></button>
@@ -34,9 +46,7 @@
               File
               <ul>
                 <li onclick="createNewFile()">new file</li>
-                <li onclick="selectFolder()">
-                  new folder
-                </li>
+                <li onclick="selectFolder()">new folder</li>
                 <hr />
                 <li onclick="saveFile()">save</li>
                 <li onclick="saveAs()">save as</li>
@@ -45,13 +55,32 @@
               </ul>
             </li>
             <li>Edit</li>
+            <li>
+              Window
+              <ul>
+                <li class="icon save">
+                  <a href="javascript:void(0)">Full Screen<span>F11</span></a>
+                </li>
+
+                <li>
+                  <a href="javascript:void(0)" onclick="toggleWidgets()"
+                    >Widgets<span
+                      ><input type="checkbox" id="widgetCheckbox" /></span
+                  ></a>
+                </li>
+                <li class="separator"></li>
+                <li>Options</li>
+              </ul>
+            </li>
             <li>View</li>
-            <li>Run
+            <li>
+              Run
               <ul>
                 <li onclick="RunCurrentFile()">Run currentFile</li>
               </ul>
             </li>
-            <li>Terminal
+            <li>
+              Terminal
               <ul>
                 <li onclick="showTerminal()">Show terminal</li>
                 <li onclick="hideTerminal()">Hide terminal</li>
@@ -85,7 +114,9 @@
           </div>
         </div>
         <div class="editorContainer"></div>
-        <h1 class="select-none"><img src="../assets/img/logo.png" alt="" draggable="false"> Deno IDE</h1>
+        <h1 class="select-none">
+          <img src="../assets/img/logo.png" alt="" draggable="false" /> Deno IDE
+        </h1>
         <div id="terminal"></div>
       </main>
       <!-- <textarea id="terminal" cols="30" rows="10" ></textarea> -->
