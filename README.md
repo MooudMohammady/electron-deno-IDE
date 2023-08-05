@@ -1,7 +1,7 @@
 # <img src="./build/icon.png" style="width:33px"/> Deno IDE <img src="./build/icon.png" style="width:33px"/>
 This is a code editor that supports any file and has auto-complete, but this editor has some bugs that will be fixed in the future.
 
-[Click here](https://github.com/MooudMohammady/electron-deno-IDE/releases/download/v0.0.1/Deno.IDE.Setup.v0.0.1.zip](https://github.com/MooudMohammady/electron-deno-IDE/tags ) for download Deno IDE 
+[Click here](https://github.com/MooudMohammady/electron-deno-IDE/tags) for download Deno IDE 
 
 **Note** : This editor belongs to the denovin team and we do not accept any commercial use of it
 
@@ -18,12 +18,12 @@ This is a code editor that supports any file and has auto-complete, but this edi
 - Customize frame and menu
 - Responsive and resizable explore
 - Has IntelliSense !
+- Terminal and run file like .py and .js(node)
 - Dark theme (Dracula)
 - Fast ⚡
 
 ## Features that will be added in the future:
 
-- Terminal and debug
 - Change theme
 - Create any projects like React.js & Django & Asp.net ...
 
