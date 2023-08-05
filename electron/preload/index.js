@@ -48,5 +48,8 @@ contextBridge.exposeInMainWorld("API", {
   },
   renameCurrentFile:(addressOfFileToBeRenamed,newAddress)=>{
     ipcRenderer.invoke('renameCurrentFile', addressOfFileToBeRenamed,newAddress);
+  },
+  deleteCurrentFile:(addressOfFileToBeDeleted)=>{
+    ipcRenderer.invoke('deleteCurrentFile', addressOfFileToBeDeleted);
   }
 });

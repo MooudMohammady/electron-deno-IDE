@@ -799,11 +799,13 @@ function deleteCurrentFile(fileId) {
 
   var tabId = split[1] + "_" + split[2];
 
-  fs.unlink(addressOfFileToBeDeleted, (err) => {
-    if (err) throw err;
-
-    $("#" + tabId).fadeOut("fast");
-  });
+  try {
+    window.API.deleteCurrentFile(addressOfFileToBeDeleted);
+  } catch (error) {
+    console.log(error);
+    return
+  }
+  $("#" + tabId).fadeOut("fast");
 }
 
 function renameCurrentFile(fileId) {
