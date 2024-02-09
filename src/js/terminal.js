@@ -11,3 +11,10 @@ term.onData((data)=>{
 window.API.receiveOutput((output)=>{
   term.write(output)
 })
+
+function showTerminal(){
+  $("#terminal").css({"height":"184px"})
+}
+function hideTerminal(){
+  $("#terminal").css({"height":"0px"})
+}

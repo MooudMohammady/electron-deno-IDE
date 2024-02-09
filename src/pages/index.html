@@ -45,6 +45,12 @@
             <li>
               File
               <ul>
+                <li>Make project
+                  <ul>
+                    <li onclick="createProject('create-react-app')">React js</li>
+                  </ul>
+                </li>
+                <hr />
                 <li onclick="createNewFile()">new file</li>
                 <li onclick="selectFolder()">new folder</li>
                 <hr />
@@ -55,23 +61,6 @@
               </ul>
             </li>
             <li>Edit</li>
-            <li>
-              Window
-              <ul>
-                <li class="icon save">
-                  <a href="javascript:void(0)">Full Screen<span>F11</span></a>
-                </li>
-
-                <li>
-                  <a href="javascript:void(0)" onclick="toggleWidgets()"
-                    >Widgets<span
-                      ><input type="checkbox" id="widgetCheckbox" /></span
-                  ></a>
-                </li>
-                <li class="separator"></li>
-                <li>Options</li>
-              </ul>
-            </li>
             <li>View</li>
             <li>
               Run

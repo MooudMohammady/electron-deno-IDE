@@ -35,6 +35,9 @@
   -moz-box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
+.main-menu li > ul > li > ul{
+  left: 100% !important;
+}
 ul.main-menu > li.active-menu {
   background-color: #141518;
 }

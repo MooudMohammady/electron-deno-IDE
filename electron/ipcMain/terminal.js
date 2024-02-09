@@ -2,7 +2,7 @@
 const { ipcMain } = require("electron");
 const pty = require('node-pty');
 const os = require('os');
-var shell = os.platform() === "win32" ? "powershell.exe" : "bash"
+var shell = os.platform() === "win32" ? "cmd.exe" : "bash"
 
 var ptyPeocess;
 

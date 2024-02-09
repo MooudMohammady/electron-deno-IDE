@@ -1029,11 +1029,8 @@ function RunCurrentFile() {
   }
 }
 
-function showTerminal(){
-  $("#terminal").css({"height":"184px"})
-}
-function hideTerminal(){
-  $("#terminal").css({"height":"0px"})
+function createProject(project){
+  window.API.createProject(project);
 }
 
 /********** ACE CONFIG **********/

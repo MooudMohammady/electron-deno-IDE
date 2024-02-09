@@ -51,5 +51,8 @@ contextBridge.exposeInMainWorld("API", {
   },
   deleteCurrentFile:(addressOfFileToBeDeleted)=>{
     ipcRenderer.invoke('deleteCurrentFile', addressOfFileToBeDeleted);
+  },
+  createProject:(project)=>{
+    ipcRenderer.invoke('createProject', project);
   }
 });
